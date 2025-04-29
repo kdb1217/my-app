@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: public-nginx
   rules:
-  - host: skala004-stock-api
+  - host: skala004-stock-api.com
     http:
       paths:
       - backend:
