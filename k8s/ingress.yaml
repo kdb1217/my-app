@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: public-nginx
   rules:
-  - host: sk004-stock-api.com
+  - host: springboot.skala25a.project2.skala-ai.com
     http:
       paths:
       - backend:
