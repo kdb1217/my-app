@@ -1,7 +1,6 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
   name: sk004-stock-api
@@ -12,34 +11,34 @@ spec:
   - host: springboot.skala25a.project2.skala-ai.com
     http:
       paths:
-      - backend:
+      - path: /actuator
+        pathType: Prefix
+        backend:
           service:
             name: sk004-stock-api
             port:
               number: 8080
-        path: 
+      - path: /swagger
         pathType: Prefix
-      - backend:
+        backend:
           service:
             name: sk004-stock-api
             port:
               number: 8081
-        path:
+      - path: /
         pathType: Prefix
-      - backend:
+        backend:
           service:
             name: sk004-stock-api
             port:
               number: 8080
-        path: /swagger
+      - path: /ui
         pathType: Prefix
-      - backend:
+        backend:
           service:
             name: sk004-stock-ui
             port:
               number: 8080
-        path: 
-        pathType: Prefix
   tls:
   - hosts:
     - '*.skala25a.project.skala-ai.com'
