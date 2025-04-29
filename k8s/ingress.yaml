@@ -5,7 +5,6 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 
-
 spec:
   ingressClassName: nginx
   rules:
@@ -13,6 +12,13 @@ spec:
     http:
       paths:
       - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sk004-stock-api
+            port:
+              number: 8080
+      - path: /swagger-ui/
         pathType: Prefix
         backend:
           service:
