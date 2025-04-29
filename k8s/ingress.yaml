@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: public-nginx
   rules:
-  - host: springboot.skala25a.project2.skala-ai.com
+  - host: sk004-stock-api.com
     http:
       paths:
       - backend:
@@ -41,5 +41,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - '*.skala25a.project.skala-ai.com'
+    - 'sk004-stock-api.com'
     secretName: skala25-project-tls-cert
