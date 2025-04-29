@@ -30,8 +30,7 @@ spec:
                 - "amdp"
       containers:
       - name: stock-api
-        image: amdp-registry.skala-ai.com/skala25a/sk004-stock-api@i@sha256:1612e1ac6cfc19dec16590a8481e34323cc6abd4a5b5336886fdd3103ca9f8a9
-        imagePullPolicy: Always
+        image: amdp-registry.skala-ai.com/skala25a/sk004-stock-api@sha256:4b4aaff0ae185b2bf80a004d06c322315a3f55e47b8592881954fe8fe1ec097f
         env:
         - name: LOGGING_LEVEL
           value: DEBUG
