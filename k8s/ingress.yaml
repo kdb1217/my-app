@@ -41,5 +41,5 @@ spec:
         pathType: Prefix
   tls:
   - hosts:
-    - 'sk004-stock-api.com'
+    - '*.skala25a.project.skala-ai.com'
     secretName: skala25-project-tls-cert
