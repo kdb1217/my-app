@@ -1,46 +1,27 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-
+  name: skala-004-ingress
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-  name: sk004-stock-api
-  namespace: skala-practice
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
 spec:
   ingressClassName: public-nginx
   rules:
-  - host: springboot.skala25a.project2.skala-ai.com
+  - host: skala004.stock.com
     http:
       paths:
-      - backend:
+      - path: /
+        pathType: Prefix
+        backend:
           service:
             name: sk004-stock-api
             port:
               number: 8080
-        path: 
+      - path: /swagger-ui/
         pathType: Prefix
-      - backend:
-          service:
-            name: sk004-stock-api
-            port:
-              number: 8081
-        path:
-        pathType: Prefix
-      - backend:
+        backend:
           service:
             name: sk004-stock-api
             port:
               number: 8080
-        path: 
-        pathType: Prefix
-      - backend:
-          service:
-            name: sk004-stock-ui
-            port:
-              number: 8080
-        path: 
-        pathType: Prefix
-  tls:
-  - hosts:
-    - '*.skala25a.project.skala-ai.com'
-    secretName: skala25-project-tls-cert
